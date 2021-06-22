@@ -1,0 +1,17 @@
+- name: Download ~/ezmlm-idx-7.2.2.tar.gz
+  get_url:
+    url: https://untroubled.org/ezmlm/archive/7.2.2/ezmlm-idx-7.2.2.tar.gz
+    dest: ~/ezmlm-idx-7.2.2.tar.gz
+
+
+- name: Unarchive ~/ezmlm-idx-7.2.2.tar.gz
+  ansible.builtin.unarchive:
+    src: ~/ezmlm-idx-7.2.2.tar.gz
+    dest: ~/
+    remote_src: yes
+
+
+- name: Clean ~/ezmlm-idx-7.2.2.tar.gz
+  file:
+    state: absent
+    path: ~/ezmlm-idx-7.2.2.tar.gz

@@ -1,0 +1,8 @@
+---
+- name: install ezmlm
+  hosts: ezmlm
+  
+  roles:
+    - download_ezmlm
+    - config
+    - make    

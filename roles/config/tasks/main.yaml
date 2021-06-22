@@ -1,0 +1,32 @@
+- name: configure ~/ezmlm-idx-7.2.2/conf-bin
+  lineinfile:
+    path: ~/ezmlm-idx-7.2.2/conf-bin
+    regexp: '/usr/local/bin/ezmlm'
+    line: "{{ ansible_env.HOME }}/bin"
+
+
+- name: configure ~/ezmlm-idx-7.2.2/conf-etc
+  lineinfile:
+    path: ~/ezmlm-idx-7.2.2/conf-etc
+    regexp: '/etc/ezmlm'
+    line: "{{ ansible_env.HOME }}/ezmlm"
+
+
+- name: configure ~/ezmlm-idx-7.2.2/conf-lib
+  lineinfile:
+    path: ~/ezmlm-idx-7.2.2/conf-lib
+    regexp: '/usr/local/lib/ezmlm'
+    line: "{{ ansible_env.HOME }}/lib/ezmlm"
+
+
+- name: configure ~/ezmlm-idx-7.2.2/conf-man
+  lineinfile:
+    path: ~/ezmlm-idx-7.2.2/conf-man
+    regexp: '/usr/local/man'
+    line: "{{ ansible_env.HOME }}/man"
+
+
+- name: Create directory ~/lists
+  file:
+    path: ~/lists
+    state: directory

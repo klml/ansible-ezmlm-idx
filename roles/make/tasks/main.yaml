@@ -1,0 +1,38 @@
+# using [module Makefile](https://docs.ansible.com/ansible/latest/collections/community/general/make_module.html)
+
+- name: Build ezmlm-idx
+  community.general.make:
+    chdir: ~/ezmlm-idx-7.2.2/
+
+
+- name: Build ezmlm-idx man
+  community.general.make:
+    chdir: ~/ezmlm-idx-7.2.2/
+    target: man
+
+
+- name: Create directory ~/lib ~/etc
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+  - ~/lib
+  - ~/etc
+
+
+- name: Build ezmlm-idx install
+  community.general.make:
+    chdir: ~/ezmlm-idx-7.2.2/
+    target: install
+
+
+- name: test ezmlm
+  shell:
+    cmd: ./ezmlm-test
+    chdir: ~/ezmlm-idx-7.2.2
+  register: ezmlmtest
+
+
+- name: result test ezmlm
+  debug:
+    var: ezmlmtest
