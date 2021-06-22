@@ -6,8 +6,15 @@ This role is based on [guilde ezmlm-idx](https://lab.uberspace.de/guide_ezmlm.ht
 * works in userspace (no root needed)
 
 
-## Usage
+## Requirements
+[Ansible module makefile](https://docs.ansible.com/ansible/latest/collections/community/general/make_module.html) is required:
 
+```
+ansible-galaxy install -r requirements.yml
+```
+
+
+## Usage
 
 ```
 ansible-playbook install-ezmlm.yaml -i <inventory>.yaml
